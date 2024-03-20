@@ -1,5 +1,6 @@
 package br.com.fiap.store.Aula04.model;
 
+import br.com.fiap.store.Aula04.dto.cliente.CadastroClienteDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,9 +26,9 @@ public class Cliente {
     private  String token;
     @Column(name="nm_cliente", nullable = false, length = 100, unique = true)
     private String nome;
-    @Column(name="nr_cpf", unique = true, length = 11, nullable = false)
+    @Column(name="nr_cpf", unique = true, length = 11)
     private String cpf;
-    @Column(name="nascimento", nullable = false)
+    @Column(name="nascimento")
     private LocalDate nascimento;
     @Column(name="categoria_cliente", nullable = false, length = 30)
     @Enumerated(EnumType.STRING)
@@ -39,4 +40,10 @@ public class Cliente {
     private LocalDateTime dataCadastro;
 
 
+    public Cliente(CadastroClienteDto dto) {
+        nome = dto.nome();
+        cpf = dto.cpf();
+        nascimento = dto.nascimento();
+        categoriaCliente = dto.categoriaCliente();
+    }
 }
