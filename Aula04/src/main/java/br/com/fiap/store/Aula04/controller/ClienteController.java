@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
-import br.com.fiap.store.Aula04.dto.DetalhesClienteDto;
+import br.com.fiap.store.Aula04.dto.cliente.DetalhesClienteDto;
 
 @RestController
 @RequestMapping("Clientes") //mapeia url's
@@ -23,7 +23,7 @@ public class ClienteController {
     @Autowired
     private ClienteRepository clienteRepository;
 
-//UriComponentsBuilder uriBuilder Esta criando a url
+    //UriComponentsBuilder uriBuilder Esta criando a url
     @PostMapping
     @Transactional //faz alteração no banco
     public ResponseEntity<DetalhesClienteDto> cadastrar(@RequestBody CadastroClienteDto clienteDto,

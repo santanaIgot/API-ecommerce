@@ -1,4 +1,4 @@
-package br.com.fiap.store.Aula04.dto;
+package br.com.fiap.store.Aula04.dto.cliente;
 
 import br.com.fiap.store.Aula04.model.CategoriaCliente;
 import br.com.fiap.store.Aula04.model.Cliente;
