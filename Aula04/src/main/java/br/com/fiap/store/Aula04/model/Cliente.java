@@ -10,6 +10,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 //entitiy indica que ela é uma tabela no banco
 @Getter@Setter
@@ -38,6 +39,10 @@ public class Cliente {
     @CreatedDate
     @Column(name = "dt_cadastro")
     private LocalDateTime dataCadastro;
+
+    //relacionamento 1:N (bidirecional)
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private List<Pedido> pedidos;
 
 
     public Cliente(CadastroClienteDto dto) {
